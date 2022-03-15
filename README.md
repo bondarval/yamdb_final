@@ -1,5 +1,5 @@
 # API для проекта YaMDB в контейнере Docker
-![example workflow](https://github.com/bondarval/yamdb_final/actions/workflows/yamdb_workflow/badge.svg)
+![example workflow](https://github.com/bondarval/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 ## Описание
 Представляет собой расширение возможностей проекта YaMDB для совершения удаленных операций.   
 Благодаря этому проекту зарегистрированные и аутентифицированные пользователи получают 
