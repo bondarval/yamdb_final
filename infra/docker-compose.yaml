@@ -9,9 +9,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: 
-      context: ..
-      dockerfile: api_yamdb/Dockerfile
+    image: bondarval/yamdb_api:v1.0
     restart: always
     volumes:
       - static_value:/app/static/
