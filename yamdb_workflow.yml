@@ -2,7 +2,7 @@ name: API for YaMDB project workflow
 
 on: 
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   tests:
