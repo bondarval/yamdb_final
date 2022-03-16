@@ -10,9 +10,10 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
+from reviews.models import Category, Genre, Review, Title, User
 
 from api_yamdb.settings import DEFAULT_FROM_EMAIL
-from reviews.models import Category, Genre, Review, Title, User
+
 from .filters import FilterForTitle
 from .mixins import ModelSetCLD
 from .permissions import (IsAdmin, IsAdminOrReadOnly,
