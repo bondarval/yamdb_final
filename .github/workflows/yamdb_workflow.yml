@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: bondarval/yamdb_api:latest
+          tags: bondarval/yamdb_api:v1.0
 
   deploy:
     name: Deploy to remote server
