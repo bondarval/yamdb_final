@@ -9,7 +9,12 @@ SECRET_KEY = os.getenv(
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "84.252.141.166",
+    "bondaryatube.ddns.net",
+]
 
 
 INSTALLED_APPS = [
