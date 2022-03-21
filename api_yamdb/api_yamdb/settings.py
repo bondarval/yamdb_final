@@ -14,6 +14,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "84.252.141.166",
     "bondaryatube.ddns.net",
+    "web",
 ]
 
 
