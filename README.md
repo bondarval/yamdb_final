@@ -23,13 +23,14 @@ http://bondaryatube.ddns.net
  - Docker 20.10.2
 ## Установка
 ### Шаблон описания файла .env
- - DB_ENGINE=<ENGINE>
- - DB_NAME=<NAME>
- - POSTGRES_USER=<USER_NAME>
- - POSTGRES_PASSWORD=<PASSWORD>
- - DB_HOST=<HOST>
- - DB_PORT=<PORT>
+ - DB_ENGINE=django.db.backends.postgresql
+ - DB_NAME=postgres
+ - POSTGRES_USER=postgres
+ - POSTGRES_PASSWORD=postgres
+ - DB_HOST=db
+ - DB_PORT=5432
 ### Команды для запуска приложения в контейнерах
+Под Linux все команды необходимо выполнять от имени администратора! 
 - собрать и запустить контейнер:
 ```bash
 docker-compose up -d --build
@@ -38,17 +39,25 @@ docker-compose up -d --build
 ```bash
 docker-compose exec web python manage.py migrate
 ```
-- Создать суперпользователя:
+- Создать суперпользователя (только при первом запуске):
 ```bash
 docker-compose exec web python manage.py createsuperuser
 ```
+В качестве рабочего варианта с одновременным заполнением логина и пароля (логин и пароль изменить на собственный!)
+необходимо выполнить команду:
+```bash
+docker-compose exec web python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')"
+``` 
 - Собрать статику проекта:
 ```bash
 docker-compose exec web python manage.py collectstatic --no-input
 ``` 
 ### Команды для заполнения базы данными
-- Заполнить базу данными
-- Создать резервную копию данных:
+- Заполнить базу данными (при первом запуске)
+```bash
+docker-compose exec web python manage.py loaddata fixtures.json
+``` 
+- Создать резервную копию данных (при необходимости):
 ```bash
 docker-compose exec web python manage.py dumpdata > fixtures.json
 ```
